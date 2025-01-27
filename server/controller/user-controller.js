@@ -30,7 +30,6 @@ export const addUser = async (request,response) => {
          
         
         response.cookie("jwt",createToken(email,sub),{
-            httpOnly: true,
             maxAge,
             secure:true,
             sameSite:"None",
@@ -42,11 +41,11 @@ export const addUser = async (request,response) => {
     }
 }
 
-/*export const getUser = async (request, response) => {
+ export const getUsers = async (request,response) => {
     try {
         const user = await User.find({});
         response.status(200).json(user);
     } catch (error) {
-        response.status(500).json(error);
+       response.status(500).json(error);
     }
-}*/
+}

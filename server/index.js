@@ -9,9 +9,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
-
-
 const PORT = 8000;
+
 
 app.use(cors({
 
@@ -20,12 +19,17 @@ app.use(cors({
     credentials:true,    //to use cookie
 
 }));
+
 app.use(cookieParser());
 app.use(express.json());  
 app.use(express.urlencoded({ extended: true }));
 app.use('/',route);
 
-app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
-Connection();
+const username=process.env.DB_USERNAME
+const password=process.env.DB_PASSWORD
+
+Connection(username,password);
+app.listen(PORT,() => console.log(`Server is running successfully on PORT ${PORT}`));
+
 
 

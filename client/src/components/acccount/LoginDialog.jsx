@@ -68,9 +68,11 @@ const Login = () => {
 
   const onLoginSuccess = async (res) => {
     const decode = jwtDecode(res.credential);
+  
     setAccount(decode);  // context api
     dispatch(signInSucesses(decode));  // redux action 
     await AddUser(decode);
+
   };
   const onLoginFailure = (res) => {
     console.log("login failed", res);

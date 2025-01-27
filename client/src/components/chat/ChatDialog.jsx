@@ -7,6 +7,7 @@ import { UserContext } from '../../context/AccountProvider';
 
 import Menu from '../chat/menu/menu';
 import EmptyChat from './chat/EmptyChat';
+import ChatBox from './chat/ChatBox';
 
 const dialogStyle = {
     height: '95%',
@@ -51,7 +52,11 @@ const chatDialog=()=>{
 
         
         <RightComponent>
-            <EmptyChat/>
+            {
+              //<EmptyChat/>
+              <ChatBox/>
+            }
+           
         </RightComponent>
       </Component>
 
